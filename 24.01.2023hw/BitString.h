@@ -11,10 +11,10 @@ public:
 	string operator+(string& a);
 	bool operator==(string& a);
 	bool operator!=(string& a);
-	~BitString();
+	~BitString() { str = ""; }
 };
 
-BitString::BitString() :str{ nullptr } {}
+BitString::BitString() :str{ "" } {}
 BitString::BitString(string s){
 	string c = "10";
 	string temp = s;
@@ -22,14 +22,15 @@ BitString::BitString(string s){
 		temp.erase(remove(temp.begin(), temp.end(), f), temp.end());
 	}
 	if (temp.length() > 0) {
-		str = nullptr;
+		str = "";
 	}
 	else
 		str = s;
 }
 
 void BitString::Show() {
-
+	if (str == "")cout << "str is empty";
+	cout << str << endl;	
 }
 
 string BitString::operator+(string& a) {
@@ -41,4 +42,3 @@ bool BitString::operator==(string& a) {
 bool BitString::operator!=(string& a) {
 	return str != a;
 }
-BitString::~BitString() { str = nullptr; }
