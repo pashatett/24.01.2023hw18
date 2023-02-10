@@ -15,4 +15,5 @@ int main() {
 	BitString bs1{"101010010101"};
 	bs.Show();
 	bs1.Show();
+
 }
